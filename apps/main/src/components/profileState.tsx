@@ -7,7 +7,7 @@ import { VoiceSet } from "./voiceSet";
 export function ProfileState() {
   return (
     <Box
-      sx={(theme) => ({
+      sx={(_theme) => ({
         width: "min-content",
       })}
     >

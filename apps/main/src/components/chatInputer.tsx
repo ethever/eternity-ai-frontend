@@ -29,7 +29,7 @@ export function ChatInputer() {
 function ButtonGroup() {
   return (
     <Box
-      sx={(theme) => ({
+      sx={(_theme) => ({
         display: "flex",
       })}
     >
