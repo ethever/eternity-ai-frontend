@@ -7,7 +7,13 @@ import Button from "@mui/joy/Button";
 import { LogoIcon, LogoText } from "./logo.svg";
 import { Box } from "@mui/joy";
 
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 function Logo() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+
   return (
     <Box
       sx={{
@@ -18,7 +24,7 @@ function Logo() {
         width: "min-content",
       }}
     >
-      <LogoIcon width={100} color="red" />
+      {matches && <LogoIcon width={100} color="red" />}
       <LogoText width={115} variant="black" />
     </Box>
   );
