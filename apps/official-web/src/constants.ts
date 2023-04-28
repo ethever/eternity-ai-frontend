@@ -1,0 +1,5 @@
+export const roadmapId = 'roadmap'
+export const partnerId = 'partner'
+export const communityId = 'community'
+export const firstSectionId = 'firstSection'
+export const advantagesId = 'advantages'

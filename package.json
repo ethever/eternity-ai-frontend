@@ -1,0 +1,23 @@
+{
+  "name": "eternity-ai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm run -r build",
+    "build:web": "pnpm run --filter official-web build",
+    "build:main": "pnpm run --filter main build",
+    "dev": "pnpm -r dev",
+    "dev:web": "pnpm --filter official-web dev",
+    "dev:main": "pnpm --filter main dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "preinstall": "npx only-allow pnpm",
+  "dependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}
