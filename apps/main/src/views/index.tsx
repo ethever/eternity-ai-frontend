@@ -1,8 +1,23 @@
 import { Box, Container, Divider } from "@mui/joy";
 import { ProfileState } from "../components/profileState";
 import { ChatView } from "../components/chatView";
+import useDesktopQuery from "../hooks/useDesktopQuery";
+import { useMemo } from "react";
 
 export function Index() {
+  const { isDesktop } = useDesktopQuery();
+
+  const desktopComponent = useMemo(() => {
+    if (isDesktop) {
+      return (
+        <>
+          <Divider orientation="vertical" />
+          <ProfileState />
+        </>
+      );
+    }
+  }, [isDesktop]);
+
   return (
     <Container>
       <Box
@@ -15,8 +30,7 @@ export function Index() {
         })}
       >
         <ChatView />
-        <Divider orientation="vertical" />
-        <ProfileState />
+        {desktopComponent}
       </Box>
     </Container>
   );

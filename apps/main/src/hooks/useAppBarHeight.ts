@@ -1,16 +1,12 @@
-import { useMediaQuery, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
+import useDesktopQuery from "./useDesktopQuery";
 
 export default function useAppBarHeight(): number {
+  const { isDesktop, isLandscape, queryDesktop, queryLandscape } =
+    useDesktopQuery();
   const {
     mixins: { toolbar },
-    breakpoints,
   } = useTheme();
-
-  const queryDesktop = breakpoints.up("sm");
-  const queryLandscape = `${breakpoints.up("xs")} and (orientation: landscape)`;
-
-  const isDesktop = useMediaQuery(queryDesktop);
-  const isLandscape = useMediaQuery(queryLandscape);
 
   const cssToolbar =
     toolbar[isDesktop ? queryDesktop : isLandscape ? queryLandscape : ""];
