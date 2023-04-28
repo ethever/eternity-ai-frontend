@@ -21,6 +21,12 @@ declare module "@mui/joy/styles" {
 }
 
 export const joyTheme = extendTheme({
+  components: {
+    JoyListItem: {
+      styleOverrides: { root: { paddingLeft: 0, paddingRight: 0 } },
+    },
+    JoyList: {},
+  },
   colorSchemes: {
     light: {
       palette: {

@@ -1,5 +1,5 @@
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
+import List from "@mui/joy/List";
+import ListItem from "@mui/joy/ListItem";
 import { ChatItem } from "./chatItem";
 import { Box, Divider } from "@mui/joy";
 import { ChatInputer } from "./chatInputer";
