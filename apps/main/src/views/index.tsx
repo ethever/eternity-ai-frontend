@@ -18,6 +18,9 @@ export function Index() {
     }
   }, [isDesktop]);
 
+  if (!isDesktop) {
+    return <ChatView />;
+  }
   return (
     <Container>
       <Box

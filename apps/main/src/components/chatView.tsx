@@ -1,9 +1,9 @@
 import List from "@mui/joy/List";
-import { ChatItem } from "./chatItem";
+import { ChatItem, ChatItemType } from "./chatItem";
 import { Box, Divider } from "@mui/joy";
 import { ChatInputer } from "./chatInputer";
 
-const chatData = [
+const chatData: ChatItemType[] = [
   {
     side: "left",
     data: "我正在考虑买一辆新车，但我不确定哪个品牌和型号适合我。你有什么建议吗？",
@@ -121,7 +121,7 @@ function ChatList() {
       })}
     >
       {chatData.map((item, index) => {
-        return <ChatItem key={`${item.data}${index}`} {...(item as any)} />;
+        return <ChatItem key={`${item.data}${index}`} {...item} />;
       })}
     </List>
   );

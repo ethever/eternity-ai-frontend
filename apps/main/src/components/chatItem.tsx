@@ -1,5 +1,4 @@
 import { Box, ListItem, Typography } from "@mui/joy";
-import useAppBarHeight from "../hooks/useAppBarHeight";
 import { ReactNode, useEffect } from "react";
 import { Wave } from "./wave.svg";
 import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled";
