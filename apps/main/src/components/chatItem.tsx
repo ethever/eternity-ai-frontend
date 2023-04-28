@@ -14,24 +14,22 @@ export type ChatItemSideType = "right" | "left";
 export type ChatItemDataType = "time" | "text" | "video" | "voice";
 
 export function ChatItem(props: ChatItemType) {
-  const appbarHeight = useAppBarHeight();
   const { side, type, data } = props;
 
   if (type === "time") {
     return (
       <ListItem
-        sticky
         sx={{
           display: "grid",
           justifyContent: "center",
-          top: appbarHeight,
         }}
       >
         <Typography
+          fontSize="small"
           sx={(theme) => ({
-            padding: theme.spacing(1),
+            padding: `${theme.spacing(0.5)} ${theme.spacing(1)}`,
             backgroundColor: "#00000055",
-            borderRadius: "10px",
+            borderRadius: "3px",
             color: "#fff",
           })}
         >
