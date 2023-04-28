@@ -76,7 +76,12 @@ const chatData = [
 
 function ChatList() {
   return (
-    <List>
+    <List
+      sx={(theme) => ({
+        paddingRight: theme.spacing(5),
+        paddingLeft: theme.spacing(5),
+      })}
+    >
       {chatData.map((item) => {
         return (
           <ListItem
@@ -97,12 +102,11 @@ function ChatList() {
 export function ChatView() {
   return (
     <Box
-      sx={(theme) => ({
-        paddingRight: theme.spacing(5),
-        paddingLeft: theme.spacing(5),
+      sx={() => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
+        width: "100%",
       })}
     >
       <ChatList />

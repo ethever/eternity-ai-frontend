@@ -10,6 +10,8 @@ export function ChatInputer() {
         display: "flex",
         paddingTop: theme.spacing(2),
         paddingBottom: theme.spacing(2),
+        paddingLeft: theme.spacing(5),
+        paddingRight: theme.spacing(5),
         position: "sticky",
         bottom: 0,
         background: "white",
@@ -29,7 +31,7 @@ export function ChatInputer() {
 function ButtonGroup() {
   return (
     <Box
-      sx={(_theme) => ({
+      sx={() => ({
         display: "flex",
       })}
     >
