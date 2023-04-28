@@ -29,9 +29,9 @@ function DocsItem() {
         alignItems: "center",
         borderRadius: "2px",
         border: "1px solid #eee",
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
+        padding: `${theme.spacing(1)} ${theme.spacing(2)}`,
         gap: theme.spacing(2),
+        cursor: "pointer",
       })}
     >
       <Avatar src={docsSetAvatar} />
