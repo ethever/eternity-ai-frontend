@@ -4,7 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import Button from "@mui/joy/Button";
 
-import { LogoIcon, LogoText } from "./logo";
+import { LogoIcon, LogoText } from "./logo.svg";
 import { Box } from "@mui/joy";
 
 function Logo() {
