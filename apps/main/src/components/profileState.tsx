@@ -3,8 +3,11 @@ import { AvatarAndNickname } from "./avatarAndNickname";
 import { ImgSet } from "./imgSet";
 import { DocsSet } from "./docsSet";
 import { VoiceSet } from "./voiceSet";
+import useAppBarHeight from "../hooks/useAppBarHeight";
 
 export function ProfileState() {
+  const appbarHeight = useAppBarHeight();
+
   return (
     <Box
       sx={() => ({
@@ -20,7 +23,7 @@ export function ProfileState() {
           gap: theme.spacing(2),
           padding: theme.spacing(2),
           position: "sticky",
-          top: 0,
+          top: appbarHeight,
         })}
       >
         <AvatarAndNickname />

@@ -82,10 +82,10 @@ function ChatList() {
         paddingLeft: theme.spacing(5),
       })}
     >
-      {chatData.map((item) => {
+      {chatData.map((item, index) => {
         return (
           <ListItem
-            key={item.data}
+            key={`${item.data}${index}`}
             sx={{
               display: "grid",
               justifyContent: item.side === "right" ? "end" : "start",
