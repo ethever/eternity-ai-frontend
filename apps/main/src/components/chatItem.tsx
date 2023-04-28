@@ -10,7 +10,8 @@ export function ChatItem({
   return (
     <Box
       sx={(theme) => ({
-        borderRadius: "10px",
+        borderRadius:
+          variant === "right" ? "10px 10px 0 10px" : "10px 10px 10px 0",
         border: variant === "right" ? "1px solid #eee" : "none",
         padding: theme.spacing(1),
         background: variant === "right" ? "white" : theme.palette.primary[500],

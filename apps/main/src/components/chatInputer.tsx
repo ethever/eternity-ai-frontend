@@ -10,6 +10,9 @@ export function ChatInputer() {
         display: "flex",
         paddingTop: theme.spacing(2),
         paddingBottom: theme.spacing(2),
+        position: "sticky",
+        bottom: 0,
+        background: "white",
       })}
     >
       <ButtonGroup />
