@@ -61,7 +61,6 @@ const chatData = [
     side: "right",
     data: "如果你需要一辆多功能车型，你可以考虑马自达CX-5或丰田RAV4。它们都是可靠的车型，适合长途旅行和日常使用。",
   },
-
   {
     side: "right",
     data: "如果你...",
@@ -84,15 +83,11 @@ function ChatList() {
     >
       {chatData.map((item, index) => {
         return (
-          <ListItem
+          <ChatItem
             key={`${item.data}${index}`}
-            sx={{
-              display: "grid",
-              justifyContent: item.side === "right" ? "end" : "start",
-            }}
-          >
-            <ChatItem variant={item.side as any} text={item.data} />
-          </ListItem>
+            variant={item.side as any}
+            text={item.data}
+          />
         );
       })}
     </List>
