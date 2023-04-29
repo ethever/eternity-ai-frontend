@@ -1,12 +1,10 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-
 import Container from "@mui/material/Container";
 import Button from "@mui/joy/Button";
-
 import { LogoIcon, LogoText } from "./logo.svg";
 import { Box } from "@mui/joy";
-
+import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -29,13 +27,22 @@ function Logo() {
     </Box>
   );
 }
+
 function ResponsiveAppBar() {
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+    target: undefined,
+  });
   return (
     <AppBar
       position="sticky"
       elevation={0}
       sx={{
-        background: "transparent",
+        background: trigger ? "#fff" : "transparent",
         color: "#000",
       }}
     >
