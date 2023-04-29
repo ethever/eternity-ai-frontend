@@ -5,13 +5,15 @@ import Button from "@mui/joy/Button";
 import { LogoIcon, LogoText } from "./logo.svg";
 import { Box } from "@mui/joy";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import SettingsIcon from "@mui/icons-material/Settings";
+import TabsIconWithText from "./tabs";
+import useMediaQuery from "../hooks/useMediaQuery";
+import { useAtom } from "jotai";
+import { tabsIndexAtom } from "../state";
+import { useMemo } from "react";
 
 function Logo() {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+  const { sm } = useMediaQuery();
 
   return (
     <Box
@@ -23,13 +25,15 @@ function Logo() {
         width: "min-content",
       }}
     >
-      {matches && <LogoIcon width={100} color="red" />}
+      {sm && <LogoIcon width={100} color="red" />}
       <LogoText width={115} variant="black" />
     </Box>
   );
 }
 
 function ResponsiveAppBar() {
+  const [tabsIndex] = useAtom(tabsIndexAtom);
+  const { md } = useMediaQuery();
   // Note that you normally won't need to set the window ref as useScrollTrigger
   // will default to window.
   // This is only being set here because the demo is in an iframe.
@@ -38,6 +42,11 @@ function ResponsiveAppBar() {
     threshold: 0,
     target: undefined,
   });
+  const btn = useMemo(() => {
+    if (tabsIndex === 3) return <SettingsBtn />;
+    return <ConnectWalletBtn />;
+  }, [tabsIndex]);
+
   return (
     <AppBar
       position="sticky"
@@ -58,17 +67,18 @@ function ResponsiveAppBar() {
             sx={{
               display: "flex",
               justifyContent: "space-between",
+              alignItems: "center",
             }}
           >
             <Logo />
+            {md && <TabsIconWithText />}
             <Box
               sx={{
                 display: "flex",
                 justifyContent: "flex-end",
               }}
             >
-              <SettingsBtn />
-              {/* <ConnectWalletBtn /> */}
+              {btn}
             </Box>
           </Container>
         </Toolbar>
@@ -78,9 +88,9 @@ function ResponsiveAppBar() {
 }
 export default ResponsiveAppBar;
 
-// function ConnectWalletBtn() {
-//   return <Button>连接钱包</Button>;
-// }
+function ConnectWalletBtn() {
+  return <Button>连接钱包</Button>;
+}
 
 function SettingsBtn() {
   return (
