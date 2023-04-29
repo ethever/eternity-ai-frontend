@@ -4,6 +4,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import docsSetAvatar from "../assets/docsset/Ellipse 28.png";
+import { AddMoreBtn } from "./addMoreButton";
 
 function ButtonGroup() {
   return (
@@ -71,6 +72,7 @@ export function DocsSet() {
       <Title title="Anna 的文档" right={<ButtonGroup />} />
       <DocsItem />
       <DocsItem />
+      <AddMoreBtn />
     </Box>
   );
 }

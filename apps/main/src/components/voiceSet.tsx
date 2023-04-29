@@ -2,7 +2,7 @@ import { Box } from "@mui/joy";
 import { Title } from "./title";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import { ReactNode } from "react";
-import AddIcon from "@mui/icons-material/Add";
+import { AddMoreBtn } from "./addMoreButton";
 
 function Item({ icon }: { icon: ReactNode }) {
   return (
@@ -32,7 +32,8 @@ export function VoiceSet() {
         <Item icon={<MusicNoteIcon />} />
         <Item icon={<MusicNoteIcon />} />
         <Item icon={<MusicNoteIcon />} />
-        <Item icon={<AddIcon />} />
+        <Item icon={<AddMoreBtn />} />
+        {/* <AddMoreBtn /> */}
       </Box>
     </Box>
   );

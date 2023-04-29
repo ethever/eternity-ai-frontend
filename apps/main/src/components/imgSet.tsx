@@ -1,4 +1,4 @@
-import { Box, IconButton } from "@mui/joy";
+import { Box } from "@mui/joy";
 import { Title } from "./title";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -9,7 +9,7 @@ import p4 from "../assets/imgset/4.png";
 import p5 from "../assets/imgset/5.png";
 import p6 from "../assets/imgset/6.png";
 import p7 from "../assets/imgset/7.png";
-import AddIcon from "@mui/icons-material/Add";
+import { AddMoreBtn } from "./addMoreButton";
 
 const data = [p1, p2, p3, p4, p5, p6, p7];
 
@@ -35,11 +35,7 @@ export function ImgSet() {
             />
           </ImageListItem>
         ))}
-        <Box sx={{ display: "grid", placeContent: "center" }}>
-          <IconButton>
-            <AddIcon />
-          </IconButton>
-        </Box>
+        <AddMoreBtn />
       </ImageList>
     </Box>
   );
