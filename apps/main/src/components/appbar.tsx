@@ -7,6 +7,7 @@ import { Box } from "@mui/joy";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 function Logo() {
   const theme = useTheme();
@@ -66,7 +67,8 @@ function ResponsiveAppBar() {
                 justifyContent: "flex-end",
               }}
             >
-              <Button>连接钱包</Button>
+              <SettingsBtn />
+              {/* <ConnectWalletBtn /> */}
             </Box>
           </Container>
         </Toolbar>
@@ -75,3 +77,15 @@ function ResponsiveAppBar() {
   );
 }
 export default ResponsiveAppBar;
+
+// function ConnectWalletBtn() {
+//   return <Button>连接钱包</Button>;
+// }
+
+function SettingsBtn() {
+  return (
+    <Button variant="plain" startDecorator={<SettingsIcon />}>
+      设置
+    </Button>
+  );
+}
