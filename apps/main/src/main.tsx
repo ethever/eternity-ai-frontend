@@ -20,6 +20,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           styles={{
             body: {
               background: "linear-gradient(90deg, #F3FFFC 0%, #FAF4FC 100%)",
+              overflow: "overlay",
             },
           }}
         />
