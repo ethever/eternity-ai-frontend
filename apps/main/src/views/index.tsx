@@ -1,4 +1,4 @@
-import { Box, Container, Divider } from "@mui/joy";
+import { Box, Container } from "@mui/joy";
 import { ProfileState } from "../components/profileState";
 import { ChatView } from "../components/chatView";
 import useDesktopQuery from "../hooks/useDesktopQuery";
@@ -9,26 +9,23 @@ export function Index() {
 
   const desktopComponent = useMemo(() => {
     if (isDesktop) {
-      return (
-        <>
-          <Divider orientation="vertical" />
-          <ProfileState />
-        </>
-      );
+      return <ProfileState />;
     }
   }, [isDesktop]);
 
   if (!isDesktop) {
     return <ChatView />;
   }
+
   return (
     <Container>
       <Box
+        gridTemplateColumns="repeat(3, 1fr)"
         sx={(theme) => ({
           marginTop: theme.spacing(5),
           background: "#fff",
-          display: "flex",
-          borderRadius: "20px",
+          display: "grid",
+          borderRadius: "15px",
           border: "1px solid #eee",
         })}
       >

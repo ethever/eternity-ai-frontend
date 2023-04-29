@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/joy";
+import { Box, Divider, Typography } from "@mui/joy";
 import { AvatarAndNickname } from "./avatarAndNickname";
 import { ImgSet } from "./imgSet";
 import { DocsSet } from "./docsSet";
@@ -10,10 +10,15 @@ export function ProfileState() {
 
   return (
     <Box
+      gridColumn="span 1"
       sx={() => ({
-        width: "min-content",
+        display: "flex",
+        alignItems: "flex-start",
+        // width: "100%",
+        // width: "max-content",
       })}
     >
+      <Divider orientation="vertical" />
       <Box
         sx={(theme) => ({
           display: "flex",
@@ -27,6 +32,7 @@ export function ProfileState() {
         })}
       >
         <AvatarAndNickname />
+
         <ImgSet />
         <DocsSet />
         <VoiceSet />

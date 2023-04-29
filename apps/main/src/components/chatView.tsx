@@ -130,6 +130,7 @@ function ChatList() {
 export function ChatView() {
   return (
     <Box
+      gridColumn="span 2"
       sx={() => ({
         display: "flex",
         flexDirection: "column",
