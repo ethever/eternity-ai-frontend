@@ -16,6 +16,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/joy": "5.0.0-alpha.77",
     "@mui/material": "^5.12.2",
+    "framer-motion": "^10.12.4",
     "jotai": "^2.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
