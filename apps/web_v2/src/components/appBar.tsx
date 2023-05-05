@@ -129,7 +129,16 @@ function MenuButton() {
 }
 
 function LaunchDAPPButton() {
-  return <Button>Launch DAPP</Button>;
+  const mode = import.meta.env.MODE;
+  const handleClick = () => {
+    if (mode === "development") {
+      // the address of `main` in local
+      window.open("http://localhost:8000");
+      return;
+    }
+    window.open("https://eternity-ai-frontend.pages.dev");
+  };
+  return <Button onClick={handleClick}>Launch DAPP</Button>;
 }
 
 function Logo() {

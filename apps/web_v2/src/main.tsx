@@ -6,13 +6,13 @@ import { CssVarsProvider as JoyCssVarsProvider } from "@mui/joy/styles";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import { materialTheme } from "./theme.ts";
+import { muiTheme, joyTheme } from "./theme.ts";
 import { CssBaseline } from "@mui/joy";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <MaterialCssVarsProvider theme={{ [THEME_ID]: materialTheme }}>
-      <JoyCssVarsProvider>
+    <MaterialCssVarsProvider theme={{ [THEME_ID]: muiTheme }}>
+      <JoyCssVarsProvider theme={joyTheme}>
         <CssBaseline />
         <App />
       </JoyCssVarsProvider>
