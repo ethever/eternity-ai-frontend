@@ -3,9 +3,14 @@ import bannerBg from "../assets/banner-background.png";
 import { Typography } from "@mui/joy";
 import { Button } from "@mui/joy";
 import useMediaQuery from "../hooks/useMediaQuery";
+import useNavigateToDAPP from "../hooks/useNavigateToDAPP";
 
 function Content() {
   const { md } = useMediaQuery();
+  const dappUrl = useNavigateToDAPP();
+  const handleClick = () => {
+    window.open(dappUrl);
+  };
   return (
     <Container
       maxWidth="xl"
@@ -38,6 +43,7 @@ function Content() {
         Silicon Based Life
       </Typography>
       <Button
+        onClick={handleClick}
         sx={{
           fontWeight: "bold",
           borderRadius: "1000px",

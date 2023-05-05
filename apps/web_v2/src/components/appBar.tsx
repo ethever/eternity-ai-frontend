@@ -10,6 +10,7 @@ import { Drawer, useScrollTrigger, ListItemText } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { atom, useAtom } from "jotai";
+import useNavigateToDAPP from "../hooks/useNavigateToDAPP";
 
 const mobileMenuOpenAtom = atom(false);
 
@@ -129,14 +130,9 @@ function MenuButton() {
 }
 
 function LaunchDAPPButton() {
-  const mode = import.meta.env.MODE;
+  const dappUrl = useNavigateToDAPP();
   const handleClick = () => {
-    if (mode === "development") {
-      // the address of `main` in local
-      window.open("http://localhost:8000");
-      return;
-    }
-    window.open("https://eternity-ai-frontend.pages.dev");
+    window.open(dappUrl);
   };
   return <Button onClick={handleClick}>Launch DAPP</Button>;
 }
