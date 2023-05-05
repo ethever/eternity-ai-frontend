@@ -3,14 +3,15 @@ import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import Button from "@mui/joy/Button";
 import { LogoIcon, LogoText } from "./logo.svg";
-import { Box } from "@mui/joy";
+import { Box, Divider, Tooltip, Typography } from "@mui/joy";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import SettingsIcon from "@mui/icons-material/Settings";
 import TabsIconWithText from "./tabs";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { useAtom } from "jotai";
 import { tabsIndexAtom } from "../state";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { Menu, MenuItem } from "@mui/joy";
 
 function Logo() {
   const { sm } = useMediaQuery();
@@ -92,10 +93,58 @@ function ConnectWalletBtn() {
   return <Button>连接钱包</Button>;
 }
 
+const settings = [
+  "夜间模式",
+  "我的账号",
+  "修改形象",
+  "购买订阅",
+  "复制邀请码",
+  "退出",
+  "帮助文档",
+  "隐私协议",
+];
+
 function SettingsBtn() {
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
   return (
-    <Button variant="plain" startDecorator={<SettingsIcon />}>
-      设置
-    </Button>
+    <Box sx={{ flexGrow: 0 }}>
+      <Tooltip title="Open settings">
+        <Button
+          onClick={handleOpenUserMenu}
+          variant="plain"
+          startDecorator={<SettingsIcon />}
+        >
+          设置
+        </Button>
+      </Tooltip>
+      <Menu
+        sx={{ mt: "45px" }}
+        id="menu-appbar"
+        anchorEl={anchorElUser}
+        keepMounted
+        open={Boolean(anchorElUser)}
+        onClose={handleCloseUserMenu}
+      >
+        {settings.map((setting, index) => {
+          return (
+            <>
+              {index === 6 && <Divider />}
+              <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <Typography textAlign="center">{setting}</Typography>
+              </MenuItem>
+            </>
+          );
+        })}
+      </Menu>
+    </Box>
   );
 }
