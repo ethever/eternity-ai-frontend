@@ -9,6 +9,8 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Box } from "@mui/joy";
 import { IconButton } from "@mui/joy";
 import { ReactNode } from "react";
+import { darkToast } from "../utils";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 
 export function Footer() {
   return (
@@ -38,5 +40,14 @@ export function Footer() {
 }
 
 function PlainIconButton({ icon }: { icon: ReactNode }) {
-  return <IconButton variant="plain">{icon}</IconButton>;
+  return (
+    <IconButton
+      onClick={() =>
+        darkToast("coming soon", <SentimentVeryDissatisfiedIcon />)
+      }
+      variant="plain"
+    >
+      {icon}
+    </IconButton>
+  );
 }

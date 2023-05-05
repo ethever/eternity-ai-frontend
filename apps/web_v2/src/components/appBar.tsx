@@ -11,6 +11,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { atom, useAtom } from "jotai";
 import useNavigateToDAPP from "../hooks/useNavigateToDAPP";
+import { darkToast, windowContainer } from "../utils";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 
 const mobileMenuOpenAtom = atom(false);
 
@@ -67,14 +69,13 @@ function MyDrawer() {
 
   const handleDrawerToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+    darkToast("coming soon", <SentimentVeryDissatisfiedIcon />);
   };
-  const container =
-    typeof window !== undefined ? () => window.document.body : undefined;
 
   return (
     <Drawer
       anchor="right"
-      container={container}
+      container={windowContainer}
       variant="temporary"
       open={mobileMenuOpen}
       onClose={handleDrawerToggle}
