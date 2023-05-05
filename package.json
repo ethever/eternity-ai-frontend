@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "install": "pnpm install && pnpm -r install",
     "build": "pnpm run -r build",
-    "build:web": "pnpm run --filter official-web build",
-    "build:main": "pnpm run --filter main build",
+    "build:web": "pnpm run --filter ./apps/official_web build",
+    "build:main": "pnpm run --filter ./apps/main build",
     "dev": "pnpm -r dev",
-    "dev:web": "pnpm --filter official-web dev",
-    "dev:main": "pnpm --filter main dev",
+    "dev:web": "pnpm --filter ./apps/official_web dev",
+    "dev:main": "pnpm --filter ./apps/main dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
