@@ -24,6 +24,7 @@ export function SectionTitle({
       <Typography
         level="h2"
         fontWeight="bold"
+        textAlign="center"
         sx={{
           color: color === "light" ? "white" : "black",
         }}
@@ -35,7 +36,7 @@ export function SectionTitle({
           color: color === "light" ? "white" : "black",
         }}
       >
-        {subTitle}
+        {subTitle.split("").join(" ").toString()}
       </Typography>
     </Box>
   );

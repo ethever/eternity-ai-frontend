@@ -4,6 +4,9 @@ import { SectionTitle } from "./sectionTitle";
 import communityBg from "../assets/community-bg.png";
 import { Box } from "@mui/joy";
 import { Avatar, Typography } from "@mui/joy";
+import useMediaQuery from "../hooks/useMediaQuery";
+import { useMemo } from "react";
+import { useTheme } from "@mui/joy";
 
 const s = [
   {
@@ -42,32 +45,72 @@ function Item({
   text: string;
   author: string;
 }) {
+  const theme = useTheme();
+  const { sm, md } = useMediaQuery();
+  const maxWidth = useMemo(() => {
+    if (!sm) return "unset";
+    if (!md) return "380px";
+    return "400px";
+  }, [sm, md]);
+
+  const minWidth = useMemo(() => {
+    if (!sm) return "unset";
+    if (!md) return "unset";
+    return "350px";
+  }, [sm, md]);
+
+  const gap = useMemo(() => {
+    if (!sm || !md) return "0";
+    return theme.spacing(2);
+  }, [sm, md, theme]);
+
   return (
     <Box
       sx={(theme) => ({
-        all: "unset",
         display: "flex",
+        flexShrink: 1,
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
         borderRadius: "20px",
-        gap: theme.spacing(2),
-        minWidth: "350px",
+        gap,
+        minWidth,
+        maxWidth,
         background: "white",
-        marginRight: theme.spacing(8),
+        marginRight: !md ? 0 : theme.spacing(8),
         padding: theme.spacing(2),
       })}
     >
       <Avatar
         sx={{
-          width: "150px",
-          height: "150px",
+          width: !md ? "98px" : "150px",
+          height: !md ? "98px" : "150px",
         }}
         src={avatar}
         alt="avatar image"
       />
       <Typography textAlign="center">{text}</Typography>
       <Typography>{author}</Typography>
+    </Box>
+  );
+}
+
+function Content() {
+  const { md } = useMediaQuery();
+  return (
+    <Box
+      sx={(theme) => ({
+        marginTop: theme.spacing(2),
+        display: "flex",
+        justifyContent: !md ? "space-around" : "unset",
+        flexWrap: !md ? "wrap" : "nowrap",
+        gap: theme.spacing(3),
+        overflowX: !md ? "hidden" : "scroll",
+      })}
+    >
+      {s.map((i) => (
+        <Item key={i.text} avatar={i.avatarUrl} text={i.text} author={i.by} />
+      ))}
     </Box>
   );
 }
@@ -89,24 +132,7 @@ export function Community() {
           subTitle="社区影响"
           color="dark"
         />
-        <Box
-          sx={(theme) => ({
-            marginTop: theme.spacing(2),
-            display: "flex",
-            wrap: "nowrap",
-            flexShrink: 0,
-            overflowX: "scroll",
-          })}
-        >
-          {s.map((i) => (
-            <Item
-              key={i.text}
-              avatar={i.avatarUrl}
-              text={i.text}
-              author={i.by}
-            />
-          ))}
-        </Box>
+        <Content />
       </SectionContainer>
     </Container>
   );

@@ -142,6 +142,15 @@ function LaunchDAPPButton() {
 }
 
 function Logo() {
-  return <LogoText />;
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <LogoText />
+    </Box>
+  );
 }
 export default ResponsiveAppBar;
