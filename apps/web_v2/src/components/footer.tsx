@@ -16,25 +16,35 @@ export function Footer() {
   return (
     <Container
       maxWidth={false}
-      sx={
-        {
-          // background: "black",
-        }
-      }
+      sx={{
+        background: "black",
+      }}
     >
-      <SectionContainer>
+      <Container
+        sx={(theme) => ({
+          paddingTop: theme.spacing(6),
+          paddingBottom: theme.spacing(8),
+        })}
+      >
         <Box>
-          <Typography>Contact Us</Typography>
+          <Typography sx={{ color: "white" }}>FIND US HERE:</Typography>
           <Box>
-            <PlainIconButton icon={<TwitterIcon />} />
-            <PlainIconButton icon={<InstagramIcon />} />
-            <PlainIconButton icon={<FacebookIcon />} />
-            <PlainIconButton icon={<LinkedInIcon />} />
-            <PlainIconButton icon={<YouTubeIcon />} />
+            <PlainIconButton icon={<TwitterIcon fontSize="large" />} />
+            <PlainIconButton icon={<InstagramIcon fontSize="large" />} />
+            <PlainIconButton icon={<FacebookIcon fontSize="large" />} />
+            <PlainIconButton icon={<LinkedInIcon fontSize="large" />} />
+            <PlainIconButton icon={<YouTubeIcon fontSize="large" />} />
           </Box>
-          <Typography>@Eternity.AI</Typography>
+          <Typography
+            sx={(theme) => ({
+              color: "white",
+              marginTop: theme.spacing(12),
+            })}
+          >
+            @Eternity.AI
+          </Typography>
         </Box>
-      </SectionContainer>
+      </Container>
     </Container>
   );
 }
@@ -45,6 +55,7 @@ function PlainIconButton({ icon }: { icon: ReactNode }) {
       onClick={() =>
         darkToast("coming soon", <SentimentVeryDissatisfiedIcon />)
       }
+      size="lg"
       variant="plain"
     >
       {icon}

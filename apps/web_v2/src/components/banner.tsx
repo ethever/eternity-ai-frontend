@@ -1,5 +1,6 @@
 import { Container } from "@mui/joy";
 import bannerBg from "../assets/banner-background.png";
+import bannerBgMobile from "../assets/banner-background-mobile.png";
 import { Typography } from "@mui/joy";
 import { Button } from "@mui/joy";
 import useMediaQuery from "../hooks/useMediaQuery";
@@ -11,6 +12,7 @@ function Content() {
   const handleClick = () => {
     window.open(dappUrl);
   };
+
   return (
     <Container
       maxWidth="xl"
@@ -49,19 +51,22 @@ function Content() {
           borderRadius: "1000px",
         }}
       >
-        Get Your SBT
+        领取永久专属 SBT
       </Button>
     </Container>
   );
 }
 export function Banner() {
+  const { md } = useMediaQuery();
   return (
     <Container
       maxWidth={false}
       sx={{
         height: "100vh",
-        background: `url(${bannerBg})`,
-        backgroundPosition: "right",
+        background: !md ? `#000 url(${bannerBgMobile})` : `url(${bannerBg})`,
+        backgroundPosition: !md ? "center calc(100% + 130px)" : "right",
+        // backgroundPosition: "center calc(100% + 200px)",
+
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}

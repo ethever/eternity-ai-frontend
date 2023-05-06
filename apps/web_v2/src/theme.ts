@@ -26,6 +26,18 @@ export const joyTheme = extendTheme({
       styleOverrides: { root: { paddingLeft: 0, paddingRight: 0 } },
     },
     JoyList: {},
+    JoyButton: {
+      styleOverrides: {
+        root: ({ ownerState }) => ({
+          ...(ownerState.variant === "plain" && {
+            background: "transparent",
+          }),
+          ...(ownerState.variant === "solid" && {
+            background: "red",
+          }),
+        }),
+      },
+    },
   },
   colorSchemes: {
     light: {

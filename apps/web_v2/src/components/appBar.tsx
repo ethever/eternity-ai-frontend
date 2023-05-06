@@ -85,15 +85,21 @@ function MyDrawer() {
       }}
       sx={{
         display: { xs: "block", md: "none" },
-        "& .MuiDrawer-paper": { boxSizing: "border-box", width: 280 },
+        "& .MuiDrawer-paper": { boxSizing: "border-box", width: "50%" },
       }}
     >
       <Toolbar />
       <Box>
         <List>
           {pages.map((page) => (
-            <ListItemButton onClick={handleDrawerToggle}>
-              <ListItemText primary={page} />
+            <ListItemButton
+              onClick={handleDrawerToggle}
+              sx={(theme) => ({
+                height: 100,
+                marginBottom: theme.spacing(3),
+              })}
+            >
+              <ListItemText primary={page} sx={{ textAlign: "center" }} />
             </ListItemButton>
           ))}
         </List>
@@ -122,8 +128,8 @@ function MenuButton() {
   };
   if (!md) {
     return (
-      <IconButton onClick={handleDrawerToggle}>
-        <MenuIcon />
+      <IconButton variant="plain" onClick={handleDrawerToggle}>
+        <MenuIcon sx={{ color: "white" }} />
       </IconButton>
     );
   }
@@ -135,7 +141,11 @@ function LaunchDAPPButton() {
   const handleClick = () => {
     window.open(dappUrl);
   };
-  return <Button onClick={handleClick}>Launch DAPP</Button>;
+  return (
+    <Button size="sm" variant="outlined" onClick={handleClick}>
+      Launch DAPP
+    </Button>
+  );
 }
 
 function Logo() {
