@@ -6,7 +6,6 @@ import { LogoIcon, LogoText } from "./logo.svg";
 import { Box, Divider, Tooltip, Typography } from "@mui/joy";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import SettingsIcon from "@mui/icons-material/Settings";
-import TabsIconWithText from "./tabs";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { useAtom } from "jotai";
 import { tabsIndexAtom } from "../state";
@@ -34,7 +33,6 @@ function Logo() {
 
 function ResponsiveAppBar() {
   const [tabsIndex] = useAtom(tabsIndexAtom);
-  const { md } = useMediaQuery();
   // Note that you normally won't need to set the window ref as useScrollTrigger
   // will default to window.
   // This is only being set here because the demo is in an iframe.
