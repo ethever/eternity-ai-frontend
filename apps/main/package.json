@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "publish": "pnpm wrangler pages publish ./dist --project-name=eternity-ai-official-website-frontend"
+    "deploy": "pnpm wrangler pages publish ./dist --project-name=eternity-ai-dapp-frontend"
   },
   "dependencies": {
     "@emotion/react": "^11.10.8",

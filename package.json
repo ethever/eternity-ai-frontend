@@ -13,9 +13,9 @@
     "dev:webv2": "pnpm --filter ./apps/web_v2 dev",
     "dev:main": "pnpm --filter ./apps/main dev",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish:main": "pnpm --filter ./apps/main publish",
-    "publish:web": "pnpm --filter ./apps/web_v2 publish",
-    "publish": "pnpm run -r publish"
+    "deploy:main": "pnpm --filter ./apps/main deploy",
+    "deploy:web": "pnpm --filter ./apps/web_v2 deploy",
+    "deploy": "pnpm run -r deploy"
   },
   "keywords": [],
   "author": "",
