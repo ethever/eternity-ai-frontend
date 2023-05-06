@@ -72,7 +72,7 @@ function ResponsiveAppBar() {
             }}
           >
             <Logo />
-            {md && <TabsIconWithText />}
+            {/* {md && <TabsIconWithText />} */}
             <Box
               sx={{
                 display: "flex",

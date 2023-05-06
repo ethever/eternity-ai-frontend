@@ -1,4 +1,14 @@
-import { Avatar, Box, Button, Container, Input, Typography } from "@mui/joy";
+import {
+  Avatar,
+  Box,
+  Button,
+  Container,
+  FormControl,
+  Input,
+  Typography,
+} from "@mui/joy";
+import { useAtom } from "jotai";
+import { tabsIndexAtom } from "../state";
 
 export function CreateProfile() {
   return (
@@ -27,6 +37,7 @@ export function CreateProfile() {
 }
 
 function Form() {
+  const [_, setTabsIndex] = useAtom(tabsIndexAtom);
   return (
     <Box>
       <form
@@ -37,17 +48,20 @@ function Form() {
         }}
         onSubmit={(event) => {
           event.preventDefault();
+          setTabsIndex(3);
         }}
       >
-        <Input size="lg" placeholder="输入昵称" />
-        <Button
-          sx={{
-            width: "100%",
-          }}
-          type="submit"
-        >
-          提交
-        </Button>
+        <FormControl>
+          <Input required size="lg" placeholder="输入昵称" />
+          <Button
+            sx={{
+              width: "100%",
+            }}
+            type="submit"
+          >
+            提交
+          </Button>
+        </FormControl>
       </form>
     </Box>
   );
