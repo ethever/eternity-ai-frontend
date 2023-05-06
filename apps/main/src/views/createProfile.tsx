@@ -9,6 +9,7 @@ import {
 } from "@mui/joy";
 import { useAtom } from "jotai";
 import { tabsIndexAtom } from "../state";
+import { nickNameAtom } from "../state/profile";
 
 export function CreateProfile() {
   return (
@@ -38,6 +39,8 @@ export function CreateProfile() {
 
 function Form() {
   const [_, setTabsIndex] = useAtom(tabsIndexAtom);
+  const [nickName, setNickName] = useAtom(nickNameAtom);
+
   return (
     <Box>
       <form
@@ -52,7 +55,13 @@ function Form() {
         }}
       >
         <FormControl>
-          <Input required size="lg" placeholder="输入昵称" />
+          <Input
+            value={nickName}
+            onChange={(event) => setNickName(event.target.value)}
+            required
+            size="lg"
+            placeholder="输入昵称"
+          />
           <Button
             sx={{
               width: "100%",

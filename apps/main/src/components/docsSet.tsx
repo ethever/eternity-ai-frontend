@@ -5,6 +5,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import docsSetAvatar from "../assets/docsset/Ellipse 28.png";
 import { AddMoreBtn } from "./addMoreButton";
+import { useAtom } from "jotai";
+import { nickNameAtom } from "../state/profile";
 
 function ButtonGroup() {
   return (
@@ -61,6 +63,8 @@ function DocsItem() {
 }
 
 export function DocsSet() {
+  const [nickName] = useAtom(nickNameAtom);
+
   return (
     <Box
       sx={(theme) => ({
@@ -69,7 +73,7 @@ export function DocsSet() {
         gap: theme.spacing(1),
       })}
     >
-      <Title title="Anna 的文档" right={<ButtonGroup />} />
+      <Title title={`${nickName} 的文档`} right={<ButtonGroup />} />
       <DocsItem />
       <DocsItem />
       <AddMoreBtn />

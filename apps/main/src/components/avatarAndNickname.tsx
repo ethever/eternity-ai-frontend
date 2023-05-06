@@ -1,6 +1,9 @@
 import { Avatar, Box, Typography } from "@mui/joy";
+import { useAtom } from "jotai";
+import { nickNameAtom } from "../state/profile";
 
 export function AvatarAndNickname() {
+  const [nickName] = useAtom(nickNameAtom);
   return (
     <Box
       sx={{
@@ -17,9 +20,9 @@ export function AvatarAndNickname() {
           height: "140px",
         }}
       >
-        Anna
+        {nickName}
       </Avatar>
-      <Typography>Anna</Typography>
+      <Typography>{nickName}</Typography>
     </Box>
   );
 }

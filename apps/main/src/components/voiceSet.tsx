@@ -3,6 +3,8 @@ import { Title } from "./title";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import { ReactNode } from "react";
 import { AddMoreBtn } from "./addMoreButton";
+import { useAtom } from "jotai";
+import { nickNameAtom } from "../state/profile";
 
 function Item({ icon }: { icon: ReactNode }) {
   return (
@@ -20,9 +22,11 @@ function Item({ icon }: { icon: ReactNode }) {
   );
 }
 export function VoiceSet() {
+  const [nickName] = useAtom(nickNameAtom);
+
   return (
     <Box>
-      <Title title="Anna 的音频" />
+      <Title title={`${nickName} 的音频`} />
       <Box
         sx={(theme) => ({
           display: "flex",

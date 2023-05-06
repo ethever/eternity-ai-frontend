@@ -10,13 +10,17 @@ import p5 from "../assets/imgset/5.png";
 import p6 from "../assets/imgset/6.png";
 import p7 from "../assets/imgset/7.png";
 import { AddMoreBtn } from "./addMoreButton";
+import { useAtom } from "jotai";
+import { nickNameAtom } from "../state/profile";
 
 const data = [p1, p2, p3, p4, p5, p6, p7];
 
 export function ImgSet() {
+  const [nickName] = useAtom(nickNameAtom);
+
   return (
     <Box>
-      <Title title="Anna 的相册" />
+      <Title title={`${nickName} 的相册`} />
       <ImageList cols={4} rowHeight={80}>
         {data.map((item) => (
           <ImageListItem
