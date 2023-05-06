@@ -69,7 +69,6 @@ function MyDrawer() {
 
   const handleDrawerToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
-    darkToast("coming soon", <SentimentVeryDissatisfiedIcon />);
   };
 
   return (
@@ -93,7 +92,10 @@ function MyDrawer() {
         <List>
           {pages.map((page) => (
             <ListItemButton
-              onClick={handleDrawerToggle}
+              onClick={() => {
+                handleDrawerToggle();
+                darkToast("coming soon", <SentimentVeryDissatisfiedIcon />);
+              }}
               sx={(theme) => ({
                 height: 100,
                 marginBottom: theme.spacing(3),
