@@ -30,6 +30,7 @@ export function VoiceSet() {
       <Box
         sx={(theme) => ({
           display: "flex",
+          flexWrap: "wrap",
           gap: theme.spacing(1),
         })}
       >
@@ -37,7 +38,6 @@ export function VoiceSet() {
         <Item icon={<MusicNoteIcon />} />
         <Item icon={<MusicNoteIcon />} />
         <Item icon={<AddMoreBtn />} />
-        {/* <AddMoreBtn /> */}
       </Box>
     </Box>
   );

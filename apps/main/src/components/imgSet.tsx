@@ -1,6 +1,5 @@
 import { Box } from "@mui/joy";
 import { Title } from "./title";
-import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import p1 from "../assets/imgset/1.png";
 import p2 from "../assets/imgset/2.png";
@@ -21,7 +20,14 @@ export function ImgSet() {
   return (
     <Box>
       <Title title={`${nickName} 的相册`} />
-      <ImageList cols={4} rowHeight={80}>
+      <Box
+        sx={(theme) => ({
+          display: "flex",
+          justifyContent: "flex-start",
+          flexWrap: "wrap",
+          gap: theme.spacing(1),
+        })}
+      >
         {data.map((item) => (
           <ImageListItem
             sx={{
@@ -40,7 +46,7 @@ export function ImgSet() {
           </ImageListItem>
         ))}
         <AddMoreBtn />
-      </ImageList>
+      </Box>
     </Box>
   );
 }
