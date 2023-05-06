@@ -26,7 +26,7 @@ export function ChatItem(props: ChatItemType) {
         <Typography
           fontSize="small"
           sx={(theme) => ({
-            padding: `${theme.spacing(0.5)} ${theme.spacing(1)}`,
+            padding: `${theme.spacing(0.5)} ${theme.spacing(0)}`,
             backgroundColor: "#00000055",
             borderRadius: "3px",
             color: "#fff",

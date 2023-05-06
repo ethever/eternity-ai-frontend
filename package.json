@@ -13,8 +13,8 @@
     "dev:webv2": "pnpm --filter ./apps/web_v2 dev",
     "dev:main": "pnpm --filter ./apps/main dev",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish:main": "pnpm wrangler pages publish ./apps/main/dist",
-    "publish:web": "pnpm wrangler pages publish ./apps/web_v2/dist"
+    "publish:main": "pnpm wrangler pages publish ./apps/main/dist --project-name=eternity-ai-official-website-frontend",
+    "publish:web": "pnpm wrangler pages publish ./apps/web_v2/dist --project-name=eternity-ai-dapp-frontend"
   },
   "keywords": [],
   "author": "",

@@ -1,5 +1,4 @@
 import { Container } from "@mui/joy";
-import { SectionContainer } from "./sectionContainer";
 import { Typography } from "@mui/joy";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";

@@ -116,8 +116,8 @@ function ChatList() {
   return (
     <List
       sx={(theme) => ({
-        paddingRight: theme.spacing(5),
-        paddingLeft: theme.spacing(5),
+        paddingRight: theme.spacing(2),
+        paddingLeft: theme.spacing(2),
       })}
     >
       {chatData.map((item, index) => {

@@ -3,7 +3,7 @@ import ResponsiveAppBar from "./components/appbar";
 import { tabsIndexAtom } from "./state";
 import { Index } from "./views";
 import { useAtom } from "jotai";
-import { CreateProfile } from "./components/createProfile";
+import { CreateProfile } from "./views/createProfile";
 import { Container, Typography } from "@mui/joy";
 import { motion, AnimatePresence } from "framer-motion";
 
