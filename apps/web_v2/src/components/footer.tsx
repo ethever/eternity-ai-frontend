@@ -20,6 +20,7 @@ export function Footer() {
       }}
     >
       <Container
+        maxWidth="xl"
         sx={(theme) => ({
           paddingTop: theme.spacing(6),
           paddingBottom: theme.spacing(8),
@@ -28,11 +29,56 @@ export function Footer() {
         <Box>
           <Typography sx={{ color: "white" }}>FIND US HERE:</Typography>
           <Box>
-            <PlainIconButton icon={<TwitterIcon fontSize="large" />} />
-            <PlainIconButton icon={<InstagramIcon fontSize="large" />} />
-            <PlainIconButton icon={<FacebookIcon fontSize="large" />} />
-            <PlainIconButton icon={<LinkedInIcon fontSize="large" />} />
-            <PlainIconButton icon={<YouTubeIcon fontSize="large" />} />
+            <PlainIconButton
+              icon={
+                <TwitterIcon
+                  fontSize="large"
+                  sx={{
+                    color: "white",
+                  }}
+                />
+              }
+            />
+            <PlainIconButton
+              icon={
+                <InstagramIcon
+                  fontSize="large"
+                  sx={{
+                    color: "white",
+                  }}
+                />
+              }
+            />
+            <PlainIconButton
+              icon={
+                <FacebookIcon
+                  fontSize="large"
+                  sx={{
+                    color: "white",
+                  }}
+                />
+              }
+            />
+            <PlainIconButton
+              icon={
+                <LinkedInIcon
+                  fontSize="large"
+                  sx={{
+                    color: "white",
+                  }}
+                />
+              }
+            />
+            <PlainIconButton
+              icon={
+                <YouTubeIcon
+                  fontSize="large"
+                  sx={{
+                    color: "white",
+                  }}
+                />
+              }
+            />
           </Box>
           <Typography
             sx={(theme) => ({
@@ -51,6 +97,11 @@ export function Footer() {
 function PlainIconButton({ icon }: { icon: ReactNode }) {
   return (
     <IconButton
+      sx={{
+        "&:hover": {
+          background: "red",
+        },
+      }}
       onClick={() =>
         darkToast("coming soon", <SentimentVeryDissatisfiedIcon />)
       }

@@ -1,5 +1,4 @@
 import { Container } from "@mui/joy";
-import { SectionContainer } from "./sectionContainer";
 import { SectionTitle } from "./sectionTitle";
 import communityBg from "../assets/community-bg.png";
 import { Box } from "@mui/joy";
@@ -7,6 +6,7 @@ import { Avatar, Typography } from "@mui/joy";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { useMemo } from "react";
 import { useTheme } from "@mui/joy";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const s = [
   {
@@ -68,11 +68,10 @@ function Item({
     <Box
       sx={(theme) => ({
         display: "flex",
-        flexShrink: 1,
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        borderRadius: "20px",
+        borderRadius: theme.radius.lg,
         gap,
         minWidth,
         maxWidth,
@@ -83,8 +82,8 @@ function Item({
     >
       <Avatar
         sx={{
-          width: !md ? "98px" : "150px",
-          height: !md ? "98px" : "150px",
+          width: !md ? "98px" : "130px",
+          height: !md ? "98px" : "130px",
         }}
         src={avatar}
         alt="avatar image"
@@ -96,16 +95,40 @@ function Item({
 }
 
 function Content() {
-  const { md } = useMediaQuery();
+  const { sm } = useMediaQuery();
+  if (sm) {
+    return (
+      <Box>
+        <Swiper
+          grabCursor={true}
+          slidesPerView={"auto"}
+          centeredSlides={true}
+          spaceBetween={15}
+        >
+          {s.map((i) => (
+            <SwiperSlide
+              style={{
+                width: "unset",
+              }}
+            >
+              <Item
+                key={i.text}
+                avatar={i.avatarUrl}
+                text={i.text}
+                author={i.by}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Box>
+    );
+  }
   return (
     <Box
       sx={(theme) => ({
-        marginTop: theme.spacing(2),
         display: "flex",
-        justifyContent: !md ? "space-around" : "unset",
-        flexWrap: !md ? "wrap" : "nowrap",
-        gap: theme.spacing(3),
-        overflowX: !md ? "hidden" : "scroll",
+        flexDirection: "column",
+        gap: theme.spacing(2),
       })}
     >
       {s.map((i) => (
@@ -119,21 +142,20 @@ export function Community() {
   return (
     <Container
       maxWidth={false}
-      sx={{
+      sx={(theme) => ({
+        display: "flex",
+        flexDirection: "column",
+        gap: theme.spacing(2),
+        paddingTop: theme.spacing(5),
+        paddingBottom: theme.spacing(5),
         backgroundImage: `url(${communityBg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundColor: "#e4e4e4",
-      }}
+      })}
     >
-      <SectionContainer>
-        <SectionTitle
-          title="Community Impact"
-          subTitle="社区影响"
-          color="dark"
-        />
-        <Content />
-      </SectionContainer>
+      <SectionTitle title="Community Impact" subTitle="社区影响" color="dark" />
+      <Content />
     </Container>
   );
 }

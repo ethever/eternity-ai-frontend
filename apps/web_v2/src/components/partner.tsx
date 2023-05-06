@@ -16,6 +16,7 @@ import p13 from "../assets/logos/13.png";
 import p14 from "../assets/logos/14.png";
 import p15 from "../assets/logos/15.png";
 import { Box } from "@mui/joy";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 const logos = () => {
   const t = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15];
@@ -24,6 +25,8 @@ const logos = () => {
 };
 
 function Item({ logo }: { logo: string }) {
+  const { md } = useMediaQuery();
+
   return (
     <Box
       sx={{
@@ -34,7 +37,13 @@ function Item({ logo }: { logo: string }) {
         },
       }}
     >
-      <img src={logo} alt="logo image" />
+      <img
+        style={{
+          maxWidth: !md ? "150px" : "unset",
+        }}
+        src={logo}
+        alt="logo image"
+      />
     </Box>
   );
 }

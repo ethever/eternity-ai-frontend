@@ -6,6 +6,9 @@ import { Box } from "@mui/joy";
 import { Typography } from "@mui/joy";
 import { SectionTitle } from "./sectionTitle";
 import { SectionContainer } from "./sectionContainer";
+import useMediaQuery from "../hooks/useMediaQuery";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
 
 const advantages = [
   {
@@ -57,6 +60,50 @@ function Item({
   );
 }
 
+function Content() {
+  const { sm } = useMediaQuery();
+  if (!sm) {
+    return (
+      <>
+        <Swiper
+          spaceBetween={0}
+          pagination={{
+            clickable: false,
+          }}
+          modules={[Pagination]}
+        >
+          {advantages.map((a) => (
+            <SwiperSlide>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Item
+                  key={a.url}
+                  imageUrl={a.url}
+                  title={a.title}
+                  text={a.text}
+                />
+              </Box>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </>
+    );
+  }
+
+  return (
+    <>
+      {advantages.map((a) => (
+        <Item key={a.url} imageUrl={a.url} title={a.title} text={a.text} />
+      ))}
+    </>
+  );
+}
+
 export function Advantages() {
   return (
     <SectionContainer>
@@ -70,9 +117,7 @@ export function Advantages() {
           marginTop: theme.spacing(5),
         })}
       >
-        {advantages.map((a) => (
-          <Item key={a.url} imageUrl={a.url} title={a.title} text={a.text} />
-        ))}
+        <Content />
       </Box>
     </SectionContainer>
   );
