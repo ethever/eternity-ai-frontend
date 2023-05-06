@@ -6,6 +6,7 @@ import { useAtom } from "jotai";
 import { CreateProfile } from "./views/createProfile";
 import { Container, Typography } from "@mui/joy";
 import { motion, AnimatePresence } from "framer-motion";
+import { ConnectWallet } from "./views/connectWallet";
 
 function App() {
   const [tabsIndex] = useAtom(tabsIndexAtom);
@@ -21,6 +22,12 @@ function App() {
       return (
         <MotionWraper key="1">
           <CreateProfile />
+        </MotionWraper>
+      );
+    if (tabsIndex === 0)
+      return (
+        <MotionWraper key="0">
+          <ConnectWallet />
         </MotionWraper>
       );
     return (
