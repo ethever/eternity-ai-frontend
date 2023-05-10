@@ -5,16 +5,32 @@ import { Typography } from "@mui/joy";
 import { Button } from "@mui/joy";
 import useMediaQuery from "../hooks/useMediaQuery";
 import useNavigateToDAPP from "../hooks/useNavigateToDAPP";
+import React, { useRef } from "react";
+import { useAtom } from "jotai";
+import { videoDialogOpenAtom } from "../states";
 
 function Content() {
+  const [_, setVideoDialogOpen] = useAtom(videoDialogOpenAtom);
+
+  const refB = useRef() as React.RefObject<HTMLDivElement>;
   const { md } = useMediaQuery();
   const dappUrl = useNavigateToDAPP();
   const handleClick = () => {
     window.open(dappUrl);
   };
+  const handleClickSelf = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    if (refB.current && refB.current === event.target) {
+      // show dialog here
+      setVideoDialogOpen(true);
+    }
+  };
 
   return (
     <Container
+      ref={refB}
+      onClick={handleClickSelf}
       maxWidth="xl"
       sx={(theme) => ({
         height: "100%",
@@ -58,6 +74,7 @@ function Content() {
 }
 export function Banner() {
   const { md } = useMediaQuery();
+
   return (
     <Container
       maxWidth={false}
@@ -65,8 +82,7 @@ export function Banner() {
         height: "100vh",
         background: !md ? `#000 url(${bannerBgMobile})` : `url(${bannerBg})`,
         backgroundPosition: !md ? "center calc(100% + 130px)" : "right",
-        // backgroundPosition: "center calc(100% + 200px)",
-
+        cursor: !md ? "pointer" : "unset",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
