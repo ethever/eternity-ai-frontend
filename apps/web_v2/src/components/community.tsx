@@ -105,18 +105,14 @@ function Content() {
           centeredSlides={true}
           spaceBetween={15}
         >
-          {s.map((i) => (
+          {s.map((i, index) => (
             <SwiperSlide
+              key={i.text + index}
               style={{
                 width: "unset",
               }}
             >
-              <Item
-                key={i.text}
-                avatar={i.avatarUrl}
-                text={i.text}
-                author={i.by}
-              />
+              <Item avatar={i.avatarUrl} text={i.text} author={i.by} />
             </SwiperSlide>
           ))}
         </Swiper>

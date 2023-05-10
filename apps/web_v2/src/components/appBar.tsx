@@ -92,6 +92,7 @@ function MyDrawer() {
         <List>
           {pages.map((page) => (
             <ListItemButton
+              key={page}
               onClick={() => {
                 handleDrawerToggle();
                 darkToast("coming soon", <SentimentVeryDissatisfiedIcon />);

@@ -73,7 +73,7 @@ function Content() {
           modules={[Pagination]}
         >
           {advantages.map((a) => (
-            <SwiperSlide>
+            <SwiperSlide key={a.url}>
               <Box
                 sx={{
                   display: "flex",
@@ -81,12 +81,7 @@ function Content() {
                   alignItems: "center",
                 }}
               >
-                <Item
-                  key={a.url}
-                  imageUrl={a.url}
-                  title={a.title}
-                  text={a.text}
-                />
+                <Item imageUrl={a.url} title={a.title} text={a.text} />
               </Box>
             </SwiperSlide>
           ))}
