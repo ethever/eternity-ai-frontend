@@ -1,12 +1,11 @@
-import { Container } from "@mui/joy";
 import { SectionContainer } from "./sectionContainer";
 import { SectionTitle } from "./sectionTitle";
 import roadMapBg from "../assets/roadmap-bg.png";
+import { FullWidthContainer } from "./fullWidthContainer";
 
 export function RoadMap() {
   return (
-    <Container
-      maxWidth={false}
+    <FullWidthContainer
       sx={{
         height: "100vh",
         background: `rgb(14,13,14) url(${roadMapBg})`,
@@ -22,6 +21,6 @@ export function RoadMap() {
           color="light"
         />
       </SectionContainer>
-    </Container>
+    </FullWidthContainer>
   );
 }

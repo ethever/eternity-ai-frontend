@@ -1,10 +1,12 @@
 import { Container, styled } from "@mui/joy";
 import React from "react";
+import { PropsOfComponent } from "../utils/typeTools";
 
-type Props = typeof Container extends React.ComponentType<infer P> ? P : never;
-type WcType = React.ComponentType<Props>;
+type ContainerProps = PropsOfComponent<typeof Container>;
 
-const withXlWidth = (Wc: WcType) => (props: Props) =>
+type WcType = React.ComponentType<ContainerProps>;
+
+const withXlWidth = (Wc: WcType) => (props: ContainerProps) =>
   <Wc {...props} maxWidth="xl" />;
 
 export const SectionContainer = styled(withXlWidth(Container))(({ theme }) => ({
