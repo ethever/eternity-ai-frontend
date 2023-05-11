@@ -21,7 +21,7 @@ function Content() {
   const handleClickSelf = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    if (refB.current && refB.current === event.target) {
+    if (refB.current && refB.current === event.target && md) {
       // show dialog here
       setVideoDialogOpen(true);
     }
