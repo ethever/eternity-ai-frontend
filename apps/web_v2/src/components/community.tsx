@@ -79,20 +79,26 @@ function Item({
         minWidth,
         maxWidth,
         background: theme.vars.palette.background.communityItem,
-        // marginRight: !md ? 0 : theme.spacing(8),
         padding: theme.spacing(2),
       })}
     >
       <Avatar
         sx={{
-          width: !md ? "98px" : "130px",
-          height: !md ? "98px" : "130px",
+          width: !md ? "98px" : "120px",
+          height: !md ? "98px" : "120px",
         }}
         src={avatar}
         alt="avatar image"
       />
       <CenteredTypography>{text}</CenteredTypography>
-      <CenteredTypography>{author}</CenteredTypography>
+      <CenteredTypography
+        sx={{
+          fontSize: "0.8rem",
+          maxWidth: "50%",
+        }}
+      >
+        {author}
+      </CenteredTypography>
     </CenteredBox>
   );
 }
