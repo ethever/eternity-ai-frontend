@@ -6,7 +6,7 @@ import { CssVarsProvider as JoyCssVarsProvider } from "@mui/joy/styles";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import { muiTheme, joyTheme } from "./theme.ts";
+import { muiTheme, joyTheme } from "./theme.tsx";
 import { CssBaseline } from "@mui/joy";
 import { Toaster } from "react-hot-toast";
 // Import Swiper styles

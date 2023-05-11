@@ -18,6 +18,12 @@ export const muiTheme = extendMaterialTheme({
 
 declare module "@mui/joy/styles" {
   // No custom tokens found, you can skip the theme augmentation.
+  interface Palette {
+    background: {
+      community: string;
+      communityItem: string;
+    };
+  }
 }
 
 export const joyTheme = extendTheme({
@@ -42,6 +48,7 @@ export const joyTheme = extendTheme({
   colorSchemes: {
     light: {
       palette: {
+        background: { community: "#e4e4e4", communityItem: "white" },
         primary: {
           "50": "#fef2f2",
           "100": "#fee2e2",

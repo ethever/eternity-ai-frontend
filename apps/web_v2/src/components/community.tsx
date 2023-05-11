@@ -2,7 +2,7 @@ import { Container } from "@mui/joy";
 import { SectionTitle } from "./sectionTitle";
 import communityBg from "../assets/community-bg.png";
 import { Box } from "@mui/joy";
-import { Avatar, Typography } from "@mui/joy";
+import { Avatar } from "@mui/joy";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { useMemo } from "react";
 import { useTheme } from "@mui/joy";
@@ -11,6 +11,8 @@ import m from "../assets/community/mask.jpg";
 import l from "../assets/community/l.jpg";
 import e from "../assets/community/e.png";
 import sa from "../assets/community/sa.png";
+import { CenteredBox } from "./centeredBox";
+import { CenteredTypography } from "./centeredTypography";
 
 const s = [
   {
@@ -69,18 +71,15 @@ function Item({
   }, [sm, md, theme]);
 
   return (
-    <Box
+    <CenteredBox
       sx={(theme) => ({
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
         flexDirection: "column",
         borderRadius: theme.radius.lg,
         gap,
         minWidth,
         maxWidth,
-        background: "white",
-        marginRight: !md ? 0 : theme.spacing(8),
+        background: theme.vars.palette.background.communityItem,
+        // marginRight: !md ? 0 : theme.spacing(8),
         padding: theme.spacing(2),
       })}
     >
@@ -92,9 +91,9 @@ function Item({
         src={avatar}
         alt="avatar image"
       />
-      <Typography textAlign="center">{text}</Typography>
-      <Typography>{author}</Typography>
-    </Box>
+      <CenteredTypography>{text}</CenteredTypography>
+      <CenteredTypography>{author}</CenteredTypography>
+    </CenteredBox>
   );
 }
 
@@ -104,10 +103,11 @@ function Content() {
     return (
       <Box>
         <Swiper
+          slidesOffsetBefore={150}
+          slidesOffsetAfter={150}
           grabCursor={true}
           slidesPerView={"auto"}
-          centeredSlides={true}
-          spaceBetween={15}
+          spaceBetween={30}
         >
           {s.map((i, index) => (
             <SwiperSlide
@@ -151,7 +151,7 @@ export function Community() {
         backgroundImage: `url(${communityBg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundColor: "#e4e4e4",
+        backgroundColor: theme.vars.palette.background.community,
       })}
     >
       <SectionTitle title="Community Impact" subTitle="社区影响" color="dark" />
